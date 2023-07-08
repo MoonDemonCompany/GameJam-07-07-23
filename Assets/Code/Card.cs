@@ -19,6 +19,8 @@ public class Card : ScriptableObject
     public string Description;
     public Sprite Artwork;
     public CardType type;
+    public BaseMinion.MinionType minionType;
+    public bool selected;
 
 
 

@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
             case GameState.AttackPhase:
                 break;
             case GameState.DrawPhase:
-               
+                DrawManager.instance.drawCard();
                 break;
             case GameState.EndGame:
 

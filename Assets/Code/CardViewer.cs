@@ -10,9 +10,11 @@ public class CardViewer : MonoBehaviour {
     public TextMesh AttackText;
     public TextMesh NameText;
     public TextMesh DescriptionText;
+    public GameObject Glow;
     private Collider2D col;
     private Transform pos;
-    private bool hover;
+    private bool selected;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,34 @@ public class CardViewer : MonoBehaviour {
         NameText.text = card.Name;
         DescriptionText.text = card.Description;
     }
+    
+     void OnMouseEnter()
+    {
+        pos.localPosition += new Vector3(0, 0.5f, 0);
+    }
 
+    void OnMouseExit()
+    {
+        pos.localPosition -= new Vector3(0, 0.5f, 0);
+    }
+
+    void OnMouseDown()
+    {
+        if (CardManger.instance.SelectedCard == null)
+        {
+            Glow.SetActive(true);
+            selected = true;
+            CardManger.instance.SelectedCard = this; 
+            Debug.Log("Clicked" + card.Name);
+        } else
+        {
+            CardManger.instance.SelectedCard.Glow.SetActive(false);
+            CardManger.instance.SelectedCard.selected = false;
+            selected = true;
+            Glow.SetActive(true);
+            CardManger.instance.SelectedCard = this; 
+        }
+    }
 
     // Update is called once per frame
 }
