@@ -38,19 +38,22 @@ public class CardViewer : MonoBehaviour {
 
     void OnMouseDown()
     {
-        if (CardManger.instance.SelectedCard == null)
+        if (GameManager.Instance.GameState == GameState.MinionPhase)
         {
-            Glow.SetActive(true);
-            selected = true;
-            CardManger.instance.SelectedCard = this; 
-            Debug.Log("Clicked" + card.Name);
-        } else
-        {
-            CardManger.instance.SelectedCard.Glow.SetActive(false);
-            CardManger.instance.SelectedCard.selected = false;
-            selected = true;
-            Glow.SetActive(true);
-            CardManger.instance.SelectedCard = this; 
+            if (CardManger.instance.SelectedCard == null)
+            {
+                Glow.SetActive(true);
+                selected = true;
+                CardManger.instance.SelectedCard = this; 
+                Debug.Log("Clicked" + card.Name);
+            } else
+            {
+                CardManger.instance.SelectedCard.Glow.SetActive(false);
+                CardManger.instance.SelectedCard.selected = false;
+                selected = true;
+                Glow.SetActive(true);
+                CardManger.instance.SelectedCard = this; 
+            }
         }
     }
 

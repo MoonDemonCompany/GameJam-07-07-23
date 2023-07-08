@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public GameState GameState;
-
+    public bool isMinionTurn = false;
+    public int Gold = 10;
     void Awake()
     {
         Instance = this;
@@ -43,7 +44,7 @@ public class GameManager : MonoBehaviour
             case GameState.AttackPhase:
                 break;
             case GameState.DrawPhase:
-                DrawManager.instance.drawCard();
+                CardManger.instance.drawCard();
                 break;
             case GameState.EndGame:
 
