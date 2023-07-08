@@ -10,7 +10,7 @@ public class Tile : MonoBehaviour
 
     [SerializeField] private bool _isWalkable;
 
-    public BaseUnit OccupiedUnit;
+    public BaseMinion OccupiedUnit;
     public bool Walkable => _isWalkable && OccupiedUnit == null;
 
 
@@ -46,14 +46,15 @@ public class Tile : MonoBehaviour
         {
             if (UnitManager.Instance.selectedMinion != null)
             {
-                SetUnit(UnitManager.Instance.selectedMinion);
+                BaseMinion spawnedMinion = Instantiate(UnitManager.Instance.selectedMinion);
+                SetUnit(spawnedMinion);
                 UnitManager.Instance.SetSelectedMinion(null);
             }
         }
 
     }
 
-    public void SetUnit(BaseUnit unit)
+    public void SetUnit(BaseMinion unit)
     {
         if (unit.OccupiedTile != null) unit.OccupiedTile.OccupiedUnit = null;
         unit.transform.position = transform.position;

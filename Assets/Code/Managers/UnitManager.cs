@@ -20,7 +20,7 @@ public class UnitManager : MonoBehaviour {
     }
 
   
-    public void MinionPhase(ref bool isMinionTurn) 
+    public void MinionPhase() 
     {
        
         
@@ -45,4 +45,6 @@ public class UnitManager : MonoBehaviour {
         selectedMinion = minion;
         MenuManager.Instance.ShowSelectedMinion(minion);
     }
+
+    
 }
