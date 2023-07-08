@@ -28,12 +28,12 @@ public class CardViewer : MonoBehaviour {
     
      void OnMouseEnter()
     {
-        pos.localPosition += new Vector3(0, 0.5f, 0);
+        pos.localPosition += new Vector3(0, 10f, 0);
     }
 
     void OnMouseExit()
     {
-        pos.localPosition -= new Vector3(0, 0.5f, 0);
+        pos.localPosition -= new Vector3(0, 10f, 0);
     }
 
     void OnMouseDown()

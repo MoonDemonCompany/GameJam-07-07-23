@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Unit",menuName = "Scriptable Unit")]
+[CreateAssetMenu(fileName = "New Minion",menuName = "Minion")]
 public class ScriptableUnit : ScriptableObject {
     public Faction faction;
     public BaseUnit unitPrefab;

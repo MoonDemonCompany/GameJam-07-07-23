@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Tile : MonoBehaviour
 {
-    public string TileName;
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private GameObject _highlight;
 
@@ -28,6 +28,7 @@ public class Tile : MonoBehaviour
     {
         if (GameManager.Instance.GameState != GameState.MinionPhase) return;
 
+
         if (OccupiedUnit != null)
         {
             if (OccupiedUnit.faction == Faction.Minion)
@@ -44,11 +45,27 @@ public class Tile : MonoBehaviour
         }
         else
         {
-            if (UnitManager.Instance.selectedMinion != null)
-            {
-                BaseMinion spawnedMinion = Instantiate(UnitManager.Instance.selectedMinion);
-                SetUnit(spawnedMinion);
-                UnitManager.Instance.SetSelectedMinion(null);
+            if (CardManger.instance.SelectedCard != null)
+            { 
+                if (CardManger.instance.SelectedCard.card.type == CardType.Minion)
+                {
+                    BaseMinion spawnedMinion = Instantiate(UnitManager.Instance.GetSpecifiedMinionUnit(CardManger.instance.SelectedCard.card.minionType));
+                    SetUnit(spawnedMinion);
+                    UnitManager.Instance.SetSelectedMinion(null);
+                }
+                else
+                {
+                    if (CardManger.instance.SelectedCard.card.type == CardType.Buff)
+                    {
+                        FadingText.text.text = "Cannot use buff on empty tile";
+                        StartCoroutine(FadingText.FadeTextToZeroAlpha(5));
+                    }
+                    else
+                    {
+                        FadingText.text.text = "Cannot use heal on empty tile";
+                        StartCoroutine(FadingText.FadeTextToZeroAlpha(5));
+                    }
+                }
             }
         }
 

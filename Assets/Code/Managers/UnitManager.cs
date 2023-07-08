@@ -36,9 +36,9 @@ public class UnitManager : MonoBehaviour {
         GameManager.Instance.ChangeState(GameState.DrawPhase);
     }
 
-    private T GetSpecifiedMinionUnit<T>(BaseMinion.MinionType minionType) where T : BaseMinion
+    public BaseMinion GetSpecifiedMinionUnit(BaseMinion.MinionType minionType)
     {
-        return (T)_units.Where(u => u.faction == Faction.Minion).Where(u => u.unitPrefab is BaseMinion).Where(u => ((BaseMinion)u.unitPrefab).minionType == minionType).First().unitPrefab;
+        return (BaseMinion)_units.Where(u => u.faction == Faction.Minion).Where(u => u.unitPrefab is BaseMinion).Where(u => ((BaseMinion)u.unitPrefab).minionType == minionType).First().unitPrefab;
     }
 
     public void SetSelectedMinion(BaseMinion minion) {
