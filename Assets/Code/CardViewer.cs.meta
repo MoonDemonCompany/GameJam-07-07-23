@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Code/Managers/GameManager.cs.meta
-guid: bc428105919281c4c966f6790dfe2f73
-========
-guid: 161d9aad99e98e043be77fd4f95394e3
->>>>>>>> origin/main:Assets/Code/Card.cs.meta
+guid: 1c494181fac434d49a9097750ca17963
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
