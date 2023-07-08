@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Code/Card.cs.meta
-guid: e9a6c220b47081d4eb29db5ad517bd69
-========
-guid: bc428105919281c4c966f6790dfe2f73
->>>>>>>> origin/callums-branch:Assets/Code/Managers/GameManager.cs.meta
+guid: 4751b524fdbd4df40b7fa7279a7bc006
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
