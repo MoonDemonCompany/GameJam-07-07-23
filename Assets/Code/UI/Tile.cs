@@ -153,9 +153,6 @@ public class Tile : MonoBehaviour
         if (unit.OccupiedTile != null) unit.OccupiedTile.OccupiedUnit = null;
         unit.transform.position = transform.position;
         unit.transform.position = new Vector3(unit.transform.position.x - offset, unit.transform.position.y, unit.transform.position.z);
-        Text text = unit.GetComponentInChildren<Text>();
-        text.text = "Health: " + unit.currentHealth.ToString();
-        text.transform.position = new Vector3(unit.transform.position.x - offset, unit.transform.position.y, unit.transform.position.z);
         unit.OccupiedTile = this;
     }
 

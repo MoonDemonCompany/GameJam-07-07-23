@@ -11,7 +11,6 @@ using Random = UnityEngine.Random;
 
 public class UnitManager : MonoBehaviour {
     public static UnitManager Instance;
-    public GameObject explosion;
     private List<ScriptableMinion> _minions;
     private List<ScriptableHero> _heroes;
     public BaseMinion selectedMinion;
@@ -33,7 +32,7 @@ public class UnitManager : MonoBehaviour {
 
         int numberOfLanes = Random.Range(1, GameManager.Instance.CurrentWave > 5 ? 5 : GameManager.Instance.CurrentWave);
         int numberOfHeroes = Random.Range(1, GameManager.Instance.CurrentWave);
-        if(GameManager.Instance.CurrentWave == 5)
+        if(GameManager.Instance.CurrentWave % 5 == 0)
         {
             Tile randomTile = GridManager.Instance.GetHeroSpawnTile();
             BaseHero spawnedHero = Instantiate(prefab);
@@ -115,11 +114,10 @@ public class UnitManager : MonoBehaviour {
         {
             hero.currentHealth -= minion.attack;
             minion.currentHealth -= hero.attack;
-            yield return new WaitForSecondsRealtime(1);
+            yield return new WaitForSecondsRealtime(0.5f);
         }
         if(hero.currentHealth <= 0)
         {
-            Instantiate(explosion, hero.gameObject.transform.position, Quaternion.identity);
             Destroy(hero.gameObject);
             spawnedHeroes.Remove(hero);
         }

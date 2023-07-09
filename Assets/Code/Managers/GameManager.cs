@@ -31,6 +31,10 @@ public class GameManager : MonoBehaviour
         {
             GameManager.Instance.ChangeState(GameState.MinionPhase);
         }
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
     }
 
 
