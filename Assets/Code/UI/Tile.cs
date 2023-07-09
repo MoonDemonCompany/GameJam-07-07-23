@@ -16,19 +16,19 @@ public class Tile : MonoBehaviour
 
     void OnMouseEnter()
     {
-        if (GameManager.Instance.GameState != GameState.MinionPhase && isSelectable == false) return;
+        if (GameManager.Instance.GameState != GameState.MinionPhase || isSelectable == false) return;
         _highlight.SetActive(true);
     }
 
     void OnMouseExit()
     {
-        if (GameManager.Instance.GameState != GameState.MinionPhase && isSelectable == false) return;
+        if (GameManager.Instance.GameState != GameState.MinionPhase || isSelectable == false) return;
         _highlight.SetActive(false);
     }
 
     void OnMouseDown()
     {
-        if (GameManager.Instance.GameState != GameState.MinionPhase && isSelectable == false) return;
+        if (GameManager.Instance.GameState != GameState.MinionPhase || isSelectable == false) return;
 
 
         if (OccupiedUnit != null)
