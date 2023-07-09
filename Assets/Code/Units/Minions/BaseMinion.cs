@@ -5,6 +5,9 @@ using UnityEngine;
 public class BaseMinion : BaseUnit
 {
     public MinionType minionType;
+    public int maxHealth;
+    public int currentHealth;
+    public int attack;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +23,7 @@ public class BaseMinion : BaseUnit
     public enum MinionType
     {
         Skeleton,
-        Zombie
+        Zombie,
+        SkeleKnight
     }
 }

@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8907531b89fe55428d14fa2e05a6d09, type: 3}
+  m_Name: SkeleKnight
+  m_EditorClassIdentifier: 
+  faction: 0
+  unitPrefab: {fileID: -6827006993240827718, guid: d1d1467a6c87bcd4cbe8e84e6353ee45, type: 3}

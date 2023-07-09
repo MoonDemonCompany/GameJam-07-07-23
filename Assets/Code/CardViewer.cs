@@ -16,7 +16,7 @@ public class CardViewer : MonoBehaviour {
     public GameObject Glow;
     private Collider2D col;
     private Transform pos;
-    private bool selected;
+    public string guid;
     public bool inShop;
     public GameObject confirm;
     
@@ -51,7 +51,6 @@ public class CardViewer : MonoBehaviour {
             if (CardManager.instance.SelectedCard == null)
             {
                 Glow.SetActive(true);
-                selected = true;
                 CardManager.instance.SelectedCard = card;
                 CardManager.instance.SelectedCardViewer = this;
                 Debug.Log("Clicked" + card.Name);
@@ -59,7 +58,6 @@ public class CardViewer : MonoBehaviour {
             {
                 CardManager.instance.SelectedCardViewer.Glow.SetActive(false);
                 CardManager.instance.SelectedCard.selected = false;
-                selected = true;
                 Glow.SetActive(true);
                 CardManager.instance.SelectedCard = card; 
                 CardManager.instance.SelectedCardViewer = this;

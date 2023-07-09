@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8907531b89fe55428d14fa2e05a6d09, type: 3}
-  m_Name: New Minion
+  m_Script: {fileID: 11500000, guid: ec22722ea307df54282b535d4b7cfe53, type: 3}
+  m_Name: Barb
   m_EditorClassIdentifier: 
-  faction: 0
-  unitPrefab: {fileID: -394853329101912812, guid: 2a9af1a6ae7a7df43b899d37f1dc45a8, type: 3}
+  unitPrefab: {fileID: -5043832227178275218, guid: 284596369c01a5e42995eb86f2830cc0, type: 3}

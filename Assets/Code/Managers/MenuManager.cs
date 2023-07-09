@@ -18,8 +18,8 @@ public class MenuManager : MonoBehaviour {
             _selectedMinionObject.SetActive(false);
             return;
         }
-
-        _selectedMinionObject.GetComponentInChildren<Text>().text = minion.UnitName;
+        string text = "Minion: " + minion.UnitName + "\n" + "Attack: " + minion.attack + "\n" + "Max Health: " + minion.maxHealth + "\n" + "Current Health: " + minion.currentHealth;
+        _selectedMinionObject.GetComponentInChildren<Text>().text = text;
         _selectedMinionObject.SetActive(true);
     }
 

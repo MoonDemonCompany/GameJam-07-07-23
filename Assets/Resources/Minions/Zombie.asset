@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8907531b89fe55428d14fa2e05a6d09, type: 3}
-  m_Name: New Minion 1
+  m_Name: Zombie
   m_EditorClassIdentifier: 
   faction: 0
-  unitPrefab: {fileID: -394853329101912812, guid: 2a9af1a6ae7a7df43b899d37f1dc45a8, type: 3}
+  unitPrefab: {fileID: -1208840265309709379, guid: ea71a32c24aa4bc418863442d51b482e, type: 3}
