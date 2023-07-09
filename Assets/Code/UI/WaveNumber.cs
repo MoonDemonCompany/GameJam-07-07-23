@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Health : MonoBehaviour
+public class WaveNumber : MonoBehaviour
 {
 
     public static Text text;
@@ -16,6 +16,6 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = "Lich King Health: " + GameManager.Instance.TotalHealth.ToString();
+        text.text = "Current Wave: " + GameManager.Instance.CurrentWave.ToString();
     }
 }
