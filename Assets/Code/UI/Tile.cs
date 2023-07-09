@@ -16,13 +16,13 @@ public class Tile : MonoBehaviour
 
     void OnMouseEnter()
     {
-        if (isSelectable == false) return;
+        if (GameManager.Instance.GameState != GameState.MinionPhase && isSelectable == false) return;
         _highlight.SetActive(true);
     }
 
     void OnMouseExit()
     {
-        if (isSelectable == false) return;
+        if (GameManager.Instance.GameState != GameState.MinionPhase && isSelectable == false) return;
         _highlight.SetActive(false);
     }
 

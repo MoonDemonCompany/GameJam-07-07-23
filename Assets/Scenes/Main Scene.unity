@@ -263,7 +263,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 200
   m_TargetDisplay: 0
 --- !u!114 &502020157
 MonoBehaviour:
@@ -732,7 +732,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1408,7 +1408,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SelectedCard: {fileID: 0}
   SelectedCardViewer: {fileID: 0}
-  Hand: []
+  Deck: []
+  ShopHand: []
   CardPrefab: {fileID: 2597321506058506174, guid: 6b2b9635008aa6844b67bf89e1b32316, type: 3}
   CardSpacing: 70
   CardScale: 35

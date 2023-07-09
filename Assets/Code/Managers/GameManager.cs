@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
                 GridManager.Instance.GenerateGrid();
                 break;
             case GameState.MinionPhase:
+                StartWave.Instance.button.GetComponentInChildren<Text>().text = "Start Wave";
                 CurrentWave++;
                 StartWave.Instance.enableStartWaveButton();
                 UnitManager.Instance.MinionPhase();
@@ -60,8 +61,6 @@ public class GameManager : MonoBehaviour
         }
     }
 }
-
-
 
 public enum GameState
 {

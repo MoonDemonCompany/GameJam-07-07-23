@@ -5,14 +5,16 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 public class CardManager : MonoBehaviour
 {
     public static CardManager instance;
     public Card SelectedCard;
     public CardViewer SelectedCardViewer;
-    public static Card[] Deck;
+    public Card[] Deck;
     public ObservableCollection<GameObject> Hand;
+    public List<GameObject> ShopHand;
     public GameObject CardPrefab;
     public float CardSpacing;
     public float CardScale;
@@ -23,6 +25,7 @@ public class CardManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        instance = this;
         Hand = new ObservableCollection<GameObject>();
         instance = this;
         Deck = Resources.LoadAll<Card>("Cards");
@@ -44,8 +47,13 @@ public class CardManager : MonoBehaviour
             card.transform.SetParent(canvas.transform, false);
             Hand.Add(card);
         }
+        Hand.CollectionChanged += Hand_CollectionChanged;
     }
 
+    private void Hand_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+    {
+        rearrangeCards();
+    }
     
     public void drawCard()
     {
@@ -64,22 +72,25 @@ public class CardManager : MonoBehaviour
 
         for (int i = 0; i < Cards.Count; i++) 
         {
-           GameObject c = Instantiate(CardPrefab, new Vector3(camPos.position.x + i * 2, camPos.position.y, 0.001f), Quaternion.identity);
-            c.transform.localScale = new Vector3(CardScale, CardScale, CardScale);
-            c.transform.localPosition += new Vector3(CardSpacing * i, 0, 0);
-            c.transform.SetParent(canvas.transform, false);
-            c.GetComponent<CardViewer>().card = Cards[i];
+           GameObject c = Instantiate(CardPrefab, new Vector3(camPos.position.x - 100 + i * 2, camPos.position.y, -0.1f), Quaternion.identity);
+           c.transform.localScale = new Vector3(CardScale, CardScale, CardScale);
+           c.transform.localPosition += new Vector3(CardSpacing * i, 0, 0);
+           c.transform.SetParent (canvas.transform, false);
+           c.GetComponent<CardViewer>().card = Cards[i];
+           c.GetComponent<CardViewer>().inShop = true;
+           ShopHand.Add(c);
         }
+        StartWave.Instance.button.GetComponentInChildren<Text>().text = "Exit Shop";
+        StartWave.Instance.enableStartWaveButton();
     }
-
+    
     public void rearrangeCards()
-    {
-        for (int i = 0; i < Hand.Count; i++)
         {
-            Hand[i].transform.localPosition = new Vector3(-150, -165, 0.001f);
-            Hand[i].transform.localScale = new Vector3(CardScale, CardScale, CardScale);
-            Hand[i].transform.localPosition += new Vector3(CardSpacing * i, 0, 0);
+            for (int i = 0; i < Hand.Count; i++)
+            {
+                Hand[i].transform.localPosition = new Vector3(-200, -165, 0.001f);
+                Hand[i].transform.localScale = new Vector3(CardScale, CardScale, CardScale);
+                Hand[i].transform.localPosition += new Vector3(CardSpacing * i, 0, 0);
+            }
         }
-    }
-
 }
