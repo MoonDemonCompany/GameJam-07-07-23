@@ -12,6 +12,7 @@ public class CardViewer : MonoBehaviour {
     public TextMesh AttackText;
     public TextMesh NameText;
     public TextMesh DescriptionText;
+    public TextMesh CostText;
     public SpriteRenderer sprite;
     public GameObject Glow;
     private Collider2D col;
@@ -25,11 +26,12 @@ public class CardViewer : MonoBehaviour {
     {
         pos = GetComponent<Transform>();
         col = GetComponent<Collider2D>();
-        HealthText.text = card.Health.ToString();
-        AttackText.text = card.Attack.ToString();
+        HealthText.text = "H: " + card.Health.ToString();
+        AttackText.text = "A: " + card.Attack.ToString();
         NameText.text = card.Name;
         DescriptionText.text = card.Description;
         sprite.sprite = card.Artwork;
+        CostText.text = "C: " + card.Cost.ToString();
     }
     
      void OnMouseEnter()
