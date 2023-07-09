@@ -78,7 +78,8 @@ public class CardManager : MonoBehaviour
            c.transform.SetParent (canvas.transform, false);
            c.GetComponent<CardViewer>().card = Cards[i];
            c.GetComponent<CardViewer>().inShop = true;
-           ShopHand.Add(c);
+            c.GetComponent<CardViewer>().guid = Guid.NewGuid().ToString();
+            ShopHand.Add(c);
         }
         StartWave.Instance.button.GetComponentInChildren<Text>().text = "Exit Shop";
         StartWave.Instance.enableStartWaveButton();

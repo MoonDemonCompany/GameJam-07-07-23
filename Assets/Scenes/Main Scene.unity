@@ -481,8 +481,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58d7ecfc3b6205b46a1d1f48a2b86b4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 235722139091787019, guid: 15572f60cec3cb54e856192597409e0b, type: 3}
+  explosion: {fileID: 0}
   selectedMinion: {fileID: 0}
+  prefab: {fileID: -5043832227178275218, guid: a372e9b15e56bbe438871a924fda68ae, type: 3}
 --- !u!4 &596905800
 Transform:
   m_ObjectHideFlags: 0
@@ -1127,8 +1128,8 @@ MonoBehaviour:
   isMinionTurn: 0
   Gold: 10
   CurrentWave: 1
-  TotalHealth: 1
-  PrevTotalHealth: 1
+  TotalHealth: 50
+  PrevTotalHealth: 50
 --- !u!1 &1293049896
 GameObject:
   m_ObjectHideFlags: 0
