@@ -11,7 +11,7 @@ using Random = UnityEngine.Random;
 
 public class UnitManager : MonoBehaviour {
     public static UnitManager Instance;
-
+    public GameObject explosion;
     private List<ScriptableMinion> _minions;
     private List<ScriptableHero> _heroes;
     public BaseMinion selectedMinion;
@@ -119,6 +119,7 @@ public class UnitManager : MonoBehaviour {
         }
         if(hero.currentHealth <= 0)
         {
+            Instantiate(explosion, hero.gameObject.transform.position, Quaternion.identity);
             Destroy(hero.gameObject);
             spawnedHeroes.Remove(hero);
         }
