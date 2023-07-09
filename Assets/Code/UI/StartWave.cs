@@ -21,9 +21,21 @@ public class StartWave : MonoBehaviour
     }
 
     void TaskOnClick()
-    {
-        GameManager.Instance.ChangeState(GameState.AttackPhase);
-        button.gameObject.SetActive(false);
+    {   
+        if (GameManager.Instance.GameState == GameState.MinionPhase)
+        {
+            button.gameObject.SetActive(false);
+            GameManager.Instance.ChangeState(GameState.AttackPhase);
+        } else if (GameManager.Instance.GameState == GameState.DrawPhase)
+        {
+            foreach (GameObject card in CardManager.instance.ShopHand)
+            {
+                Destroy(card);
+            }
+            CardManager.instance.ShopHand.Clear();
+            button.gameObject.SetActive(false);
+            GameManager.Instance.ChangeState(GameState.MinionPhase);
+        }
     }
 
     public void enableStartWaveButton()

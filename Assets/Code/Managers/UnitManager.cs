@@ -22,7 +22,6 @@ public class UnitManager : MonoBehaviour {
   
     public void MinionPhase() 
     {
-       
         
     }
 

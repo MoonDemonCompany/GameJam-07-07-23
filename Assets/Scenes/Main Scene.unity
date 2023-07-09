@@ -263,7 +263,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 200
   m_TargetDisplay: 0
 --- !u!114 &502020157
 MonoBehaviour:
@@ -682,7 +682,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -853,6 +853,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameState: 0
+  isMinionTurn: 0
+  Gold: 10
 --- !u!1 &1293049896
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,7 +970,7 @@ MonoBehaviour:
   _height: 5
   _tilePrefab: {fileID: 7713943756842381217, guid: 6ba7ee26a99439f419d2c03a6728d61f, type: 3}
   _tilePrefab2: {fileID: 7713943756842381217, guid: b5040a5c3c3b55a4d82bc6e9635a81e2, type: 3}
-  _cam: {fileID: 519420032}
+  _cam: {fileID: 0}
   canvas: {fileID: 791050199}
 --- !u!1 &1414971409
 GameObject:
@@ -1243,6 +1245,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectedCard: {fileID: 0}
+  SelectedCardViewer: {fileID: 0}
+  Deck: []
+  ShopHand: []
+  CardPrefab: {fileID: 2597321506058506174, guid: 6b2b9635008aa6844b67bf89e1b32316, type: 3}
+  CardSpacing: 70
+  CardScale: 35
+  CardYOffset: 0
+  CardXOffset: 0
+  camPos: {fileID: 519420032}
+  canvas: {fileID: 791050199}
 --- !u!4 &1656674364
 Transform:
   m_ObjectHideFlags: 0

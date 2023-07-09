@@ -38,13 +38,15 @@ public class GameManager : MonoBehaviour
                 GridManager.Instance.GenerateGrid();
                 break;
             case GameState.MinionPhase:
+                StartWave.Instance.button.GetComponentInChildren<Text>().text = "Start Wave";
                 StartWave.Instance.enableStartWaveButton();
                 UnitManager.Instance.MinionPhase();
                 break;
             case GameState.AttackPhase:
+                UnitManager.Instance.SpawnHeroes();
                 break;
             case GameState.DrawPhase:
-                CardManger.instance.drawCard();
+                CardManager.instance.drawCard();
                 break;
             case GameState.EndGame:
 

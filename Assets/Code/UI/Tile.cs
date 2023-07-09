@@ -16,11 +16,13 @@ public class Tile : MonoBehaviour
 
     void OnMouseEnter()
     {
+        if (GameManager.Instance.GameState != GameState.MinionPhase) return;
         _highlight.SetActive(true);
     }
 
     void OnMouseExit()
     {
+        if (GameManager.Instance.GameState != GameState.MinionPhase) return;
         _highlight.SetActive(false);
     }
 
@@ -45,17 +47,17 @@ public class Tile : MonoBehaviour
         }
         else
         {
-            if (CardManger.instance.SelectedCard != null)
+            if (CardManager.instance.SelectedCard != null)
             { 
-                if (CardManger.instance.SelectedCard.card.type == CardType.Minion)
+                if (CardManager.instance.SelectedCard.type == CardType.Minion)
                 {
-                    BaseMinion spawnedMinion = Instantiate(UnitManager.Instance.GetSpecifiedMinionUnit(CardManger.instance.SelectedCard.card.minionType));
+                    BaseMinion spawnedMinion = Instantiate(UnitManager.Instance.GetSpecifiedMinionUnit(CardManager.instance.SelectedCard.minionType));
                     SetUnit(spawnedMinion);
                     UnitManager.Instance.SetSelectedMinion(null);
                 }
                 else
                 {
-                    if (CardManger.instance.SelectedCard.card.type == CardType.Buff)
+                    if (CardManager.instance.SelectedCard.type == CardType.Buff)
                     {
                         FadingText.text.text = "Cannot use buff on empty tile";
                         StartCoroutine(FadingText.FadeTextToZeroAlpha(5));
