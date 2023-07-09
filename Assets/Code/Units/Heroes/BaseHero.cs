@@ -33,8 +33,8 @@ public class BaseHero : BaseUnit
         if (collision.gameObject.tag == "Lich King")
         {
             bossCollision = true;
-
             GameManager.Instance.TotalHealth -= attack;
+            UnitManager.Instance.spawnedHeroes.Remove(this);
             Destroy(gameObject);
             if (GameManager.Instance.TotalHealth <= 0)
             {

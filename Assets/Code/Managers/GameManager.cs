@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -11,7 +12,8 @@ public class GameManager : MonoBehaviour
     public bool isMinionTurn = false;
     public int Gold = 10;
     public int CurrentWave = 0;
-    public int TotalHealth = 100;
+    public int TotalHealth = 50;
+    public int PrevTotalHealth = 50;
     void Awake()
     {
         Instance = this;
@@ -51,14 +53,33 @@ public class GameManager : MonoBehaviour
                 UnitManager.Instance.AttackPhase();
                 break;
             case GameState.DrawPhase:
+                AddGold();
                 CardManager.instance.drawCard();
                 break;
             case GameState.EndGame:
-
+                endGame();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
         }
+    }
+
+    void endGame()
+    {
+        SceneManager.LoadScene("EndGame");
+    }
+    void AddGold() { 
+        if(TotalHealth != PrevTotalHealth)
+        {
+            Gold += 5;
+            PrevTotalHealth = TotalHealth;
+        }
+        else
+        {
+            Gold += 10;
+        }
+        
+
     }
 }
 

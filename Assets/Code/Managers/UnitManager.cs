@@ -15,7 +15,8 @@ public class UnitManager : MonoBehaviour {
     private List<ScriptableMinion> _minions;
     private List<ScriptableHero> _heroes;
     public BaseMinion selectedMinion;
-    private ObservableCollection<BaseHero> spawnedHeroes = new ObservableCollection<BaseHero>();
+    public ObservableCollection<BaseHero> spawnedHeroes = new ObservableCollection<BaseHero>();
+    public BaseHero prefab;
 
     void Awake() {
         Instance = this;
@@ -32,7 +33,17 @@ public class UnitManager : MonoBehaviour {
 
         int numberOfLanes = Random.Range(1, GameManager.Instance.CurrentWave > 5 ? 5 : GameManager.Instance.CurrentWave);
         int numberOfHeroes = Random.Range(1, GameManager.Instance.CurrentWave);
-        SpawnHeroes(numberOfHeroes, numberOfLanes);
+        if(GameManager.Instance.CurrentWave == 5)
+        {
+            Tile randomTile = GridManager.Instance.GetHeroSpawnTile();
+            BaseHero spawnedHero = Instantiate(prefab);
+            spawnedHeroes.Add(spawnedHero);
+            randomTile.SetHero(spawnedHero,0);
+        }
+        else
+        {
+            SpawnHeroes(numberOfHeroes, numberOfLanes);
+        }
 
     }
 
@@ -59,11 +70,11 @@ public class UnitManager : MonoBehaviour {
         }
         foreach (Tile tile in RandomTiles)
         {
-            StartCoroutine(SpawnMultipleLanes(numberOfHeroes, tile));
+            SpawnMultipleLanes(numberOfHeroes, tile);
         }
     }
 
-    IEnumerator SpawnMultipleLanes(int numberOfHeroes, Tile tile)
+    void SpawnMultipleLanes(int numberOfHeroes, Tile tile)
     {
         for (int i = 0; i < numberOfHeroes; i++)
         {
@@ -73,8 +84,7 @@ public class UnitManager : MonoBehaviour {
             spawnedHeroes.Add(spawnedHero);
             tile.SetHero(spawnedHero, i * 5);
         }
-        
-        yield return null;
+       
     }
 
     private void spawnedHeroes_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
@@ -95,7 +105,6 @@ public class UnitManager : MonoBehaviour {
         for (int i = 0; i < spawnedHeroes.Count; i++)
         {
             spawnedHeroes[i].MoveForward();
-            yield return new WaitForSecondsRealtime(5);
         }
         yield return null;
     }
