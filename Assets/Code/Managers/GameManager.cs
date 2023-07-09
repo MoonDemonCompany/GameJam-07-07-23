@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public GameState GameState;
     public bool isMinionTurn = false;
     public int Gold = 10;
+    public int CurrentWave = 0;
+    public int TotalHealth = 100;
     void Awake()
     {
         Instance = this;
@@ -18,6 +20,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         ChangeState(GameState.GenerateGrid);
+        CurrentWave = 0;
     }
 
     private void Update()
@@ -38,13 +41,16 @@ public class GameManager : MonoBehaviour
                 GridManager.Instance.GenerateGrid();
                 break;
             case GameState.MinionPhase:
+                CurrentWave++;
                 StartWave.Instance.enableStartWaveButton();
                 UnitManager.Instance.MinionPhase();
                 break;
             case GameState.AttackPhase:
+                UnitManager.Instance.SetSelectedMinion(null);
+                UnitManager.Instance.AttackPhase();
                 break;
             case GameState.DrawPhase:
-                CardManger.instance.drawCard();
+                CardManager.instance.drawCard();
                 break;
             case GameState.EndGame:
 
@@ -53,8 +59,9 @@ public class GameManager : MonoBehaviour
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
         }
     }
-
 }
+
+
 
 public enum GameState
 {

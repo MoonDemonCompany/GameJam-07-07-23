@@ -10,12 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 161d9aad99e98e043be77fd4f95394e3, type: 3}
-  m_Name: Turtle
+  m_Name: SkeleKnight
   m_EditorClassIdentifier: 
-  Health: 0
-  Attack: 0
-  Cost: 0
-  Name: Turtle
-  Description: Cool Guy B)
+  Health: 20
+  Attack: 15
+  Cost: 15
+  Name: SkeleKnight
+  Description: 
   Artwork: {fileID: 21300000, guid: 7f854f490da24e54f9e8383e446b5d81, type: 3}
   type: 0
+  minionType: 2
+  buffType: 0
+  healType: 0
+  selected: 0

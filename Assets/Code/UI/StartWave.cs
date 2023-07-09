@@ -22,8 +22,9 @@ public class StartWave : MonoBehaviour
 
     void TaskOnClick()
     {
-        GameManager.Instance.ChangeState(GameState.AttackPhase);
         button.gameObject.SetActive(false);
+        GameManager.Instance.ChangeState(GameState.AttackPhase);
+        
     }
 
     public void enableStartWaveButton()

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.U2D.Path.GUIFramework;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -14,7 +13,8 @@ public class CardViewer : MonoBehaviour {
     private Collider2D col;
     private Transform pos;
     private bool selected;
-    
+    public string guid;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,19 +40,21 @@ public class CardViewer : MonoBehaviour {
     {
         if (GameManager.Instance.GameState == GameState.MinionPhase)
         {
-            if (CardManger.instance.SelectedCard == null)
+            if (CardManager.instance.SelectedCard == null)
             {
                 Glow.SetActive(true);
                 selected = true;
-                CardManger.instance.SelectedCard = this; 
+                CardManager.instance.SelectedCard = card;
+                CardManager.instance.SelectedCardViewer = this;
                 Debug.Log("Clicked" + card.Name);
             } else
             {
-                CardManger.instance.SelectedCard.Glow.SetActive(false);
-                CardManger.instance.SelectedCard.selected = false;
+                CardManager.instance.SelectedCardViewer.Glow.SetActive(false);
+                CardManager.instance.SelectedCard.selected = false;
                 selected = true;
                 Glow.SetActive(true);
-                CardManger.instance.SelectedCard = this; 
+                CardManager.instance.SelectedCard = card;
+                CardManager.instance.SelectedCardViewer = this;
             }
         }
     }

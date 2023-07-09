@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,20 @@ public enum CardType
     Minion,
     Buff,
     Heal
+}
+
+public enum BuffType
+{
+    AttackPlus2,
+    AttackPlus4,
+    HealthPlus2,
+    HealthPlus4
+}
+
+public enum HealType
+{
+    PartHeal,
+    FullHeal
 }
 
 [CreateAssetMenu]
@@ -20,6 +35,8 @@ public class Card : ScriptableObject
     public Sprite Artwork;
     public CardType type;
     public BaseMinion.MinionType minionType;
+    public BuffType buffType;
+    public HealType healType;
     public bool selected;
 
 

@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 161d9aad99e98e043be77fd4f95394e3, type: 3}
-  m_Name: TestCard 2
+  m_Name: Zombie
   m_EditorClassIdentifier: 
-  Health: 15
-  Attack: 3
-  Cost: 1
-  Name: Buff
-  Description: This is a test!!!
-  Artwork: {fileID: 21300000, guid: 127aa3c331b10c946a3ef14a29a6c63a, type: 3}
-  type: 1
-  minionType: 0
+  Health: 12
+  Attack: 8
+  Cost: 8
+  Name: Zombie
+  Description: 
+  Artwork: {fileID: 0}
+  type: 0
+  minionType: 1
+  buffType: 0
+  healType: 0
   selected: 0

@@ -9,15 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 161d9aad99e98e043be77fd4f95394e3, type: 3}
-  m_Name: Steve
+  m_Script: {fileID: 11500000, guid: d8907531b89fe55428d14fa2e05a6d09, type: 3}
+  m_Name: Skeleton
   m_EditorClassIdentifier: 
-  Health: 12
-  Attack: 8
-  Cost: 8
-  Name: Steve
-  Description: :)
-  Artwork: {fileID: 0}
-  type: 0
-  minionType: 1
-  selected: 0
+  faction: 0
+  unitPrefab: {fileID: -6296198610171779138, guid: 2a9af1a6ae7a7df43b899d37f1dc45a8, type: 3}
